@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Palette Recis Revival: 90s Sunset / Disco */
+  --color-bg-deep: #0f0518;       /* Deep Purple */
+  --color-bg-light: #2a1b3d;      /* Lighter Purple */
+  --color-sunset: #ff6b00;       /* Orange */
+  --color-neon-pink: #ff0055;     /* Pink */
+  --color-text-main: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  
+  /* Spacing */
+  --container-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-sunset), var(--color-neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-neon-pink), var(--color-sunset));
+  border-radius: 4px;
+}
