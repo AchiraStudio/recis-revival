@@ -1,0 +1,28 @@
+.sponsor-marquee {
+  background: var(--accent-yellow);
+  color: #000;
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 900;
+  font-size: 1.2rem;
+  transform: rotate(-1deg);
+  margin: 50px 0;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+.sponsor-name {
+  margin: 0 30px;
+  font-family: 'Righteous', cursive;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

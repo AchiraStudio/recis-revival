@@ -1,0 +1,227 @@
+/* --- Variables (Ensure these exist or use these defaults) --- */
+:root {
+  --bg-card: rgba(20, 20, 20, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+  --accent-color: #ff512f; /* Orange/Red */
+  --accent-secondary: #dd2476; /* Pink/Purple */
+  --spotify-green: #1DB954;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+}
+
+/* --- Section Layout --- */
+.lineup-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.glow-text {
+  font-size: 3rem;
+  background: linear-gradient(to right, #fff, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.stars-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* --- Artist Card Container --- */
+.artist-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Video takes slightly more space */
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(221, 36, 118, 0.2); /* Colored Glow on Hover */
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Video Section --- */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Content Section --- */
+.artist-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+}
+
+/* Header Info */
+.artist-header h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.genre {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: rgba(255, 81, 47, 0.15);
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 81, 47, 0.3);
+}
+
+.artist-desc {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* --- Spotify Hits List --- */
+.top-hits {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.top-hits h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-main);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.spotify-icon {
+  color: var(--spotify-green);
+  font-size: 1.4rem;
+}
+
+.top-hits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-hits li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.top-hits li:last-child {
+  border-bottom: none;
+}
+
+.top-hits li:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-hits .idx {
+  color: var(--accent-secondary);
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.top-hits .song-name {
+  color: #ddd;
+  font-weight: 500;
+}
+
+/* Simple visual fake equalizer for flair */
+.equalizer-bar {
+  height: 15px;
+  width: 3px;
+  background-color: var(--spotify-green);
+  box-shadow: 5px 0 0 var(--spotify-green), 10px 0 0 var(--spotify-green);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.top-hits li:hover .equalizer-bar {
+  opacity: 1;
+  animation: bounce 0.6s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1); }
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 968px) {
+  .artist-card {
+    grid-template-columns: 1fr; /* Stack vertically on tablet/mobile */
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .video-container {
+    aspect-ratio: 16 / 9; /* Keep video ratio correct */
+    min-height: auto;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .artist-content {
+    padding: 30px;
+  }
+  
+  .artist-header h3 {
+    font-size: 2rem;
+  }
+}

@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Sponsors from './components/Sponsors';
 import Competitions from './components/Competitions';
-import Artists from './components/Artists';
+import GuestStars from './components/GuestStars';
+import Tickets from './components/Tickets';
 import Merch from './components/Merch';
-import './App.css';
+import Footer from './components/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const App = () => {
+function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      easing: 'ease-in-out',
+      once: false
+    });
+  }, []);
+
   return (
-    <div className={styles.app}>
+    <div className="app">
       <Navbar />
       <Hero />
+      <Sponsors />
+      <GuestStars />
       <Competitions />
-      <Artists />
+      <Tickets />
       <Merch />
-      <footer className={styles.footer}>
-        <div className="container">
-          <div className={styles.footerContent}>
-            <div>
-              <h2 className="text-gradient">RECIS REVIVAL</h2>
-              <p>Bogor, Indonesia</p>
-            </div>
-            <div>
-              <p>© 2024 SMA Regina Pacis.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;

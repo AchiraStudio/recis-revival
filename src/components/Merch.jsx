@@ -1,39 +1,34 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/Merch.css';
 
+const items = [
+  { id: 1, name: "Revival Hoodie", price: "Rp 185.000", img: "https://images.unsplash.com/photo-1556906781-9a412961c28c?q=80&w=1000&auto=format&fit=crop" },
+  { id: 2, name: "Graphic Tee", price: "Rp 95.000", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop" },
+  { id: 3, name: "Retro Tote", price: "Rp 65.000", img: "https://images.unsplash.com/photo-1597484661643-2f6f332063f3?q=80&w=1000&auto=format&fit=crop" },
+  { id: 4, name: "Lanyard", price: "Rp 35.000", img: "https://images.unsplash.com/photo-1634212579624-954f9a39f607?q=80&w=1000&auto=format&fit=crop" }
+];
+
 const Merch = () => {
-  const [ref, isVisible] = useScrollReveal();
-
-  const items = [
-    { name: "Revival Tee", price: "Rp 150.000", img: "https://picsum.photos/seed/shirt/400/500" },
-    { name: "Snapback Cap", price: "Rp 120.000", img: "https://picsum.photos/seed/cap/400/500" },
-    { name: "Tote Bag", price: "Rp 75.000", img: "https://picsum.photos/seed/bag/400/500" },
-    { name: "Wristband", price: "Rp 25.000", img: "https://picsum.photos/seed/band/400/500" },
-  ];
-
   return (
-    <section id="merch" className={styles.merch}>
-      <div className="container">
-        <div className={styles.header} ref={ref}>
-          <span className="text-gradient">EXCLUSIVE</span>
-          <h2>Official Merchandise</h2>
-          <p>Grab the gear before it's gone.</p>
-        </div>
+    <section id="merch" className="section-padding">
+      <div className="section-header" data-aos="fade-up">
+        <h2>Merchandise</h2>
+        <p>Bawa pulang kenangan Revival Cup. Pre-order dibuka sekarang.</p>
+      </div>
 
-        <div className={styles.grid}>
-          {items.map((item, index) => (
-            <div key={index} className={`${styles.card} ${isVisible ? styles.visible : ''}`} style={{ transitionDelay: `${index * 100}ms` }}>
-              <div className={styles.imgWrapper}>
-                <img src={item.img} alt={item.name} />
-              </div>
-              <div className={styles.info}>
-                <h4>{item.name}</h4>
-                <p>{item.price}</p>
-              </div>
+      <div className="merch-grid">
+        {items.map((item, idx) => (
+          <div key={item.id} className="merch-card" data-aos="zoom-in" data-aos-delay={idx * 100}>
+            <div className="merch-img" style={{ backgroundImage: `url(${item.img})` }}>
+              <span className="badge-new">New</span>
             </div>
-          ))}
-        </div>
+            <div className="merch-info">
+              <h3>{item.name}</h3>
+              <p className="price">{item.price}</p>
+              <button className="buy-btn">Pesan</button>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

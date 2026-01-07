@@ -1,47 +1,28 @@
 import React from 'react';
-import { ArrowRight, Calendar } from 'lucide-react';
 import '../styles/Hero.css';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Hero = () => {
-  const [ref, isVisible] = useScrollReveal();
-
   return (
-    <section id="home" className={styles.hero}>
-      {/* Background Gradients */}
-      <div className={styles.bgOrb1}></div>
-      <div className={styles.bgOrb2}></div>
-
-      <div className={`container ${styles.content} ${isVisible ? styles.visible : ''}`} ref={ref}>
-        <div className={styles.tagline}>
-          <span className={styles.pulseDot}></span>
-          SMA REGINA PACIS PRESENTS
-        </div>
-        <h1 className={styles.title}>
-          RECIS <br />
-          <span className="text-gradient">REVIVAL</span>
+    <section id="home" className="hero">
+      <div className="hero-overlay"></div>
+      <div className="hero-content" data-aos="fade-up">
+        <div className="badge">SMA REGINA PACIS PRESENTS</div>
+        <h1 className="hero-title retro-font">
+          REVIVAL <span className="outline">CUP</span> <span className="year">2024</span>
         </h1>
-        <p className={styles.description}>
-          Step back into the rhythm. A 90s nostalgia meets modern energy. 
-          The ultimate comeback is here.
+        <p className="hero-desc">
+          Rasakan energi nostalgia tahun 90-an. Kompetisi sengit, musik legendaris, 
+          dan kenangan tak terlupakan di Bogor.
         </p>
+        <div className="hero-actions">
+          <a href="#tickets" className="btn-primary">Dapatkan Tiket</a>
+          <a href="#lineup" className="btn-outline">Lihat Lineup</a>
+        </div>
         
-        <div className={styles.buttonGroup}>
-          <a href="#comps" className={`${styles.btn} ${styles.primary}`}>
-            Explore Events
-            <ArrowRight size={18} />
-          </a>
-          <a href="#merch" className={`${styles.btn} ${styles.secondary}`}>
-            Get Merch
-          </a>
-        </div>
-
-        <div className={styles.countdown}>
-          <div className={styles.dateBox}>
-            <Calendar size={20} className="text-[var(--color-sunset)]" />
-            <span>NOVEMBER 09, 2024</span>
-          </div>
-        </div>
+        {/* <div className="scroll-indicator">
+          <span>Scroll Down</span>
+          <div className="mouse"></div>
+        </div> */}
       </div>
     </section>
   );

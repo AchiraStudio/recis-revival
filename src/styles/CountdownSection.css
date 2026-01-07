@@ -1,0 +1,25 @@
+.countdown-container {
+  background: var(--color-night-blue);
+  padding: 40px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.timer-box h2 {
+  font-size: 2.5rem;
+  color: var(--color-sunset-orange);
+}
+
+.ticker-tape {
+  width: 100%;
+  background: var(--color-retro-yellow);
+  color: var(--color-night-blue);
+  padding: 10px 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-2deg) scale(1.1);
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(240, 152, 25, 0.5);
+}
