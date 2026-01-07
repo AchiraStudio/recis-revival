@@ -11,8 +11,7 @@ const Hero = () => {
           REVIVAL <span className="outline">CUP</span> <span className="year">2024</span>
         </h1>
         <p className="hero-desc">
-          Rasakan energi nostalgia tahun 90-an. Kompetisi sengit, musik legendaris, 
-          dan kenangan tak terlupakan di Bogor.
+          Kita disini, bersama. Berkompetisi, bernyanyi, bersenang-senang, merayakan bersama. Inilah Revival
         </p>
         <div className="hero-actions">
           <a href="#tickets" className="btn-primary">Dapatkan Tiket</a>
